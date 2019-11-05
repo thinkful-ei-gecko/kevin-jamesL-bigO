@@ -6,21 +6,19 @@
 //#2 Even or Odd
 function isEven(value) {
   if (value % 2 == 0) {
-      return true;
-  }
-  else
-      return false;
-  }
+    return true;
+  } else return false;
+}
 //BigO = constant O(1) --> only one operation on any input
 
 //#3 Are you here?
 function areYouHere(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
-      const el1 = arr1[i];
-      for (let j = 0; j < arr2.length; j++) {
-          const el2 = arr2[j];
-          if (el1 === el2) return true;
-      }
+    const el1 = arr1[i];
+    for (let j = 0; j < arr2.length; j++) {
+      const el2 = arr2[j];
+      if (el1 === el2) return true;
+    }
   }
   return false;
 }
@@ -30,7 +28,7 @@ function areYouHere(arr1, arr2) {
 //#4 Doubler
 function doubleArrayValues(array) {
   for (let i = 0; i < array.length; i++) {
-      array[i] *= 2;
+    array[i] *= 2;
   }
   return array;
 }
@@ -40,9 +38,9 @@ function doubleArrayValues(array) {
 //#5 Naive Search
 function naiveSearch(array, item) {
   for (let i = 0; i < array.length; i++) {
-      if (array[i] === item) {
-          return i;
-      }
+    if (array[i] === item) {
+      return i;
+    }
   }
 }
 //basic search algo --> linear growth as array grows
@@ -51,9 +49,9 @@ function naiveSearch(array, item) {
 //#6 Creating Pairs
 function createPairs(arr) {
   for (let i = 0; i < arr.length; i++) {
-      for(let j = i + 1; j < arr.length; j++) {
-          console.log(arr[i] + ", " +  arr[j] );
-      }
+    for (let j = i + 1; j < arr.length; j++) {
+      console.log(arr[i] + ', ' + arr[j]);
+    }
   }
 }
 //nested array dependent on arr.length
@@ -63,16 +61,13 @@ function createPairs(arr) {
 function compute(num) {
   let result = [];
   for (let i = 1; i <= num; i++) {
-
-      if (i === 1) {
-          result.push(0);
-      }
-      else if (i == 2) {
-          result.push(1);
-      }
-      else {
-          result.push(result[i - 2] + result[i - 3]);
-      }
+    if (i === 1) {
+      result.push(0);
+    } else if (i == 2) {
+      result.push(1);
+    } else {
+      result.push(result[i - 2] + result[i - 3]);
+    }
   }
   return result;
 }
@@ -87,18 +82,16 @@ function efficientSearch(array, item) {
   let currentElement;
 
   while (minIndex <= maxIndex) {
-      currentIndex = Math.floor((minIndex + maxIndex) / 2);
-      currentElement = array[currentIndex];
+    currentIndex = Math.floor((minIndex + maxIndex) / 2);
+    currentElement = array[currentIndex];
 
-      if (currentElement < item) {
-          minIndex = currentIndex + 1;
-      }
-      else if (currentElement > item) {
-          maxIndex = currentIndex - 1;
-      }
-      else {
-          return currentIndex;
-      }
+    if (currentElement < item) {
+      minIndex = currentIndex + 1;
+    } else if (currentElement > item) {
+      maxIndex = currentIndex - 1;
+    } else {
+      return currentIndex;
+    }
   }
   return -1;
 }
@@ -116,10 +109,10 @@ function findRandomElement(arr) {
 //#10 What Am I?
 function isWhat(n) {
   if (n < 2 || n % 1 != 0) {
-      return false;
+    return false;
   }
   for (let i = 2; i < n; ++i) {
-      if (n % i == 0) return false;
+    if (n % i == 0) return false;
   }
   return true;
 }
@@ -128,5 +121,12 @@ function isWhat(n) {
 //BigO = O(n)
 
 //#11 Hanoi
-
-
+function hanoi(num, source, temp, dest) {
+  if (num > 0) {
+    hanoi(num - 1, source, dest, temp);
+    console.log(`${source} -> ${dest}`);
+    hanoi(num - 1, temp, source, dest);
+  }
+}
+hanoi(3, 'A', 'B', 'C');
+// Time Complexity: O(2^n)
