@@ -52,7 +52,49 @@ function triangle(num) {
 // console.log(triangle(9));
 
 // Drill 5
-function stringSplitter(string, separator) {
-
+function stringSplitter(string, splitter) {
+  let arr = []
+  let tempStr = ''
+  for(let i=0; i < string.length; i++){
+    if(string[i] !==splitter){
+      tempStr += string[i]
+    }
+    else if(string[i] === splitter){
+      arr.push(tempStr)
+      tempStr=''
+    }
+    if(i === string.length - 1){
+      arr.push(tempStr)
+      tempStr=''
+    }
+  }
+  return arr
 }
-console.log(stringSplitter('02/20/2020', '/'));
+
+// console.log(stringSplitter('02/20/2020', '/'));
+
+//Drill 6
+function fibby(num) {
+  let result = [0, 1];
+  for (let i = 2; i <= num; i++) {
+    result.push(result[i - 1] + result[i - 2]);
+    }
+  return result[num];
+}
+
+// console.log(fibby(7))
+
+//Drill 7
+function factorial(num) {
+  if (num === 1) {
+    return 1;
+  }
+
+  let temp = num;
+  for (let i = 1; i < temp; i++) {
+    num *= temp - i;
+  }
+  return num;
+}
+
+// console.log(factorial(5))
